@@ -2,11 +2,11 @@ FROM python:latest
 
 MAINTAINER aneudy.motacatalino@gmail.com
 
-RUN mkdir -p /var/cas-automation
+RUN mkdir -p /var/cmd-automation
 
 COPY ./ /var/cas-automation
 
-RUN pip install -r /var/cas-automation/requirements.txt
+RUN pip install -r /var/cmd-automation/requirements.txt
 
 WORKDIR /var/cas-automation
 
