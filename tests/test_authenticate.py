@@ -3,7 +3,7 @@ from command.cas import Cas
 
 def test_authenticate_text_file():
     cas = Cas()
-    res = cas.authenticate("tests/data/Aneudy_Resume.txt")
+    res = cas.authenticate("test_data/Aneudy_Resume.txt")
     assert res.get("Status") == "TRUSTED"
 
 
