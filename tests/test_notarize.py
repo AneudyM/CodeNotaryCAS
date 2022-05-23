@@ -3,17 +3,19 @@ from command.cas import Cas
 
 def test_notarize_text_file():
     cas = Cas()
-    res = cas.notarize("test_data/Aneudy_Resume.txt")
+    res = cas.notarize_text_file("test_data/Aneudy_Resume.txt")
     assert res.get("Status") == "TRUSTED"
 
 
 def test_notarize_git_repo():
-    # Arrange
     cas = Cas()
-    #repo_name = utils.generate_repo()
-
-    # Act
     res = cas.notarize_repo("test_data/my-repo-01")
+    assert res.get('verified') is True
 
-    # Assert
-    assert res.get("Status") == "TRUSTED"
+
+def test_notarize_docker_image():
+    cas = Cas()
+    res = cas.notarize_docker_image("cas-automation")
+    assert res.get('verified') is True
+
+
