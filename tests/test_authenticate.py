@@ -1,11 +1,18 @@
-# def test_authenticate_text_file():
-#     cas = Cas()
-#     print(os.path.join("../test_data/Aneudy_Resume.txt"))
-#     res = cas.authenticate("test_data/Aneudy_Resume.txt")
-#     #assert res.get("Status") == "TRUSTED"
+
+import os
+
+from command.cas import Cas
 
 
-# def test_authenticate_git_repo():
-#    cas = Cas()
-#    res = cas.authenticate("path/to/git/repo")
-#    assert res.get("Status") == "TRUSTED"
+def test_authenticate_text_file():
+    test_file = os.path.join(os.getcwd(), 'test_data', 'Aneudy_Resume.txt')
+    cas = Cas()
+    res = cas.authenticate_file(test_file)
+    assert res.get('verified') is True
+
+
+def test_authenticate_git_repo():
+    test_repo = os.path.join(os.getcwd(), 'test_data', 'working')
+    cas = Cas()
+    res = cas.authenticate_repo(test_repo)
+    assert res.get('verified') is True
