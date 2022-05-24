@@ -1,6 +1,6 @@
 import os
-import subprocess
 
+import utils.repo
 from command.cas import Cas
 
 
@@ -15,8 +15,11 @@ def test_notarize_file():
 def test_notarize_git_repo():
     cas = Cas()
     cas.login()
-#   res = cas.notarize_repo()
-#     assert res.get('verified') is True
+    utils.repo.create_test_repo()
+    res = cas.notarize_repo(os.path.join(os.getcwd(), 'test_data', 'working'))
+    print(res)
+    print(res.get('kind'))
+    assert res.get("verified") == True
 #
 #
 # def test_notarize_docker_image():

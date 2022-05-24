@@ -1,6 +1,5 @@
 import json
 
-
 LINE_HEADER = "Your assets will not be uploaded. They will be processed locally."
 
 
@@ -19,5 +18,3 @@ def parse_stdout(output_str):
 def parse_json(json_str):
     json_output = json.loads(json_str)
     return json_output
-
-

@@ -3,10 +3,8 @@ import shutil
 import stat
 import subprocess
 import sys
-import time
 
 import pytest
-
 from git import Repo
 
 
@@ -41,8 +39,6 @@ if __name__ == "__main__":
         clone_repo(url, bin_dir)
         os.chdir(bin_dir)
         make_cas()
-
-
 
     os.chdir(project_base_dir)
     sys.exit(pytest.main(['-s']))

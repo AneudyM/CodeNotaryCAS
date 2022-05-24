@@ -6,7 +6,6 @@ import utils.parser
 
 
 class Cas:
-
     CAS_API_KEY = os.environ.get("CAS_API_KEY")
     CAS_BIN = os.path.join(os.getcwd(), "bin", "cas")
     TEST_DATA_DIR = os.path.join(os.getcwd(), "test_data")
@@ -15,7 +14,6 @@ class Cas:
         cp = subprocess.run([self.CAS_BIN, 'login'], capture_output=True, universal_newlines=True)
         if cp.stderr:
             sys.exit(cp.stderr)
-
 
     def notarize_test(self, asset):
         cp = subprocess.run(
