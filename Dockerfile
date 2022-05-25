@@ -17,6 +17,4 @@ RUN pip install -r /var/cas-automation/requirements.txt
 
 WORKDIR /var/cas-automation
 
-ENV CAS_API_KEY=''
-
 CMD ["python3", "./run.py"]
