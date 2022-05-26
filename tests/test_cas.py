@@ -72,7 +72,14 @@ def test_authenticate_page():
     options.add_argument("no-sandbox")
     options.add_argument("--disable-extensions")
     driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager().install()))
-    driver.get("https://cas.codenotary.com/authenticate")
+    test_file = os.path.join(os.getcwd(), 'test_data', 'ANEUDY_MOTA.txt')
+    cas = Cas()
+    cas.login()
+    res = cas.authenticate_file(test_file)
+    print(res.__getitem__('signer'))
+    signer_id = res.__getitem__('signer')
+    asset_hash = res.__getitem__('hash')
+    driver.get("https://cas.codenotary.com/authenticate/" + signer_id + "/" + asset_hash)
     assert driver.title == "cas - cas attestation service"
     driver.quit()
 

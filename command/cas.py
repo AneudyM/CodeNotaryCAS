@@ -15,6 +15,11 @@ class Cas:
         if cp.stderr:
             sys.exit(cp.stderr)
 
+    def logout(self):
+        cp = subprocess.run([self.CAS_BIN, 'logout'], capture_output=True, universal_newlines=True)
+        if cp.stderr:
+            sys.exit(cp.stderr)
+
     def notarize_file(self, asset):
         cp = subprocess.run(
             [self.CAS_BIN, 'notarize', os.path.join(self.TEST_DATA_DIR, asset), '--api-key', self.CAS_API_KEY],
