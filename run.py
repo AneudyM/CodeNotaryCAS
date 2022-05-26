@@ -21,21 +21,27 @@ def clone_repo(repo_url, target_dir):
 def make_cas():
     subprocess.run(['make', 'cas'])
 
+def create_test_data_dir():
+    os.mkdir("test_data")
+
 
 if __name__ == "__main__":
     project_base_dir = os.getcwd()
     bin_dir = os.path.join("bin")
+    test_data_dir = os.path.join(os.getcwd(), "test_data")
     cas_repo_path = os.path.join("test_data", "cas")
     url = 'https://github.com/codenotary/cas.git'
 
     if "CAS_API_KEY" not in os.environ:
         sys.exit("CAS_API_KEY not set")
 
-    test_file = os.path.join(os.getcwd(), 'test_data', 'Aneudy_Resume.txt')
-    file = open(test_file, 'x')
-    ns = time.time_ns()
-    file.write(str(ns))
-    file.close()
+    if os.path.isdir(test_data_dir):
+        shutil.rmtree(test_data_dir, onerror=remove_readonly)
+        create_test_data_dir()
+        file = open(os.path.join("test_data", "ANEUDY_MOTA.txt"), 'x')
+        ns = time.time_ns()
+        file.write(str(ns))
+        file.close()
 
     if os.path.isdir(bin_dir):
         shutil.rmtree(bin_dir, onerror=remove_readonly)
@@ -46,6 +52,8 @@ if __name__ == "__main__":
         clone_repo(url, bin_dir)
         os.chdir(bin_dir)
         make_cas()
+
+
 
     os.chdir(project_base_dir)
     sys.exit(pytest.main(['-s']))
