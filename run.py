@@ -3,6 +3,7 @@ import shutil
 import stat
 import subprocess
 import sys
+import time
 
 import pytest
 from git import Repo
@@ -29,6 +30,12 @@ if __name__ == "__main__":
 
     if "CAS_API_KEY" not in os.environ:
         sys.exit("CAS_API_KEY not set")
+
+    test_file = os.path.join(os.getcwd(), 'test_data', 'Aneudy_Resume.txt')
+    file = open(test_file, 'x')
+    ns = time.time_ns()
+    file.write(str(ns))
+    file.close()
 
     if os.path.isdir(bin_dir):
         shutil.rmtree(bin_dir, onerror=remove_readonly)
