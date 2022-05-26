@@ -44,7 +44,7 @@ class Cas:
             [self.CAS_BIN, 'authenticate', asset, '--api-key', self.CAS_API_KEY, '--output=json'],
             capture_output=True, universal_newlines=True)
         if cp.stderr:
-            sys.exit(cp.stderr)
+            return cp.stderr
         return utils.parser.parse_json(cp.stdout)
 
     def authenticate_repo(self, test_repo):

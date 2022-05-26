@@ -35,13 +35,7 @@ if __name__ == "__main__":
     if "CAS_API_KEY" not in os.environ:
         sys.exit("CAS_API_KEY not set")
 
-    if os.path.isdir(test_data_dir):
-        shutil.rmtree(test_data_dir, onerror=remove_readonly)
-        create_test_data_dir()
-        file = open(os.path.join("test_data", "ANEUDY_MOTA.txt"), 'x')
-        ns = time.time_ns()
-        file.write(str(ns))
-        file.close()
+    create_test_data_dir()
 
     if os.path.isdir(bin_dir):
         shutil.rmtree(bin_dir, onerror=remove_readonly)
@@ -52,8 +46,6 @@ if __name__ == "__main__":
         clone_repo(url, bin_dir)
         os.chdir(bin_dir)
         make_cas()
-
-
 
     os.chdir(project_base_dir)
     sys.exit(pytest.main(['-s']))
