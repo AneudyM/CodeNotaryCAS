@@ -17,14 +17,14 @@ class TestAuthenticatePage:
         auth_page.click_green_button()
         assert auth_page.get_asset_status() == "Trusted"
 
-    def test_authenticate_page_url(self):
-        signer_id = b"aneudy.motacatalino@gmail.com"
-        unique_hash = "704d5e623f1942679e956b06fc7c1379f43b2eedaba096669337069fe0b3daae"
-        base64_encoded_signer_id = base64.b64encode(signer_id)
-        browser = UIDriver().get_driver()
-        auth_page = AuthenticatePage(driver=browser)
-        auth_page.url = "https://cas.codenotary.com/authenticate/" + base64_encoded_signer_id.decode() + "/" + unique_hash
-        auth_page.navigate()
-        assert auth_page.get_asset_status() == "Trusted"
+    # def test_authenticate_page_url(self):
+    #     signer_id = b"aneudy.motacatalino@gmail.com"
+    #     unique_hash = "704d5e623f1942679e956b06fc7c1379f43b2eedaba096669337069fe0b3daae"
+    #     base64_encoded_signer_id = base64.b64encode(signer_id)
+    #     browser = UIDriver().get_driver()
+    #     auth_page = AuthenticatePage(driver=browser)
+    #     auth_page.url = "https://cas.codenotary.com/authenticate/" + base64_encoded_signer_id.decode() + "/" + unique_hash
+    #     auth_page.navigate()
+    #     assert auth_page.get_asset_status() == "Trusted"
 
 

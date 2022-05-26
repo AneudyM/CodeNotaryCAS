@@ -9,8 +9,6 @@ from command.cas import Cas
 @pytest.mark.order(1)
 def test_notarize_file():
     test_file = os.path.join(os.getcwd(), 'test_data', 'ANEUDY_MOTA.txt')
-    print(test_file)
-    print(os.getcwd())
     file = open(test_file, 'x')
     ns = time.time_ns()
     file.write(str(ns))
