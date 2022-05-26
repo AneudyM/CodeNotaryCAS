@@ -1,21 +1,22 @@
 name: CAS Automation
 on: push
-env:
-  CAS_API_KEY: ${{ secrets.CAS_API_KEY }}
+
 
 jobs:
   show_environment:
     name: "Show Environment Variables"
     runs-on: ubuntu-latest
-
     steps:
       - name: "Show Environment Variables"
         run: |
           env
+
   build:
     name: CAS Automation Action
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
       - uses: ./
+        env:
+          CAS_API_KEY: ${{ secrets.CAS_API_KEY }}
 
