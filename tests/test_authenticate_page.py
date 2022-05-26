@@ -11,5 +11,5 @@ def test_authenticate_page():
     options.add_argument("--disable-extensions")
     driver = webdriver.Chrome(options=options, service=Service(ChromeDriverManager().install()))
     driver.get("https://cas.codenotary.com/authenticate")
-    assert driver.title == "cas - cas attestation servic"
+    assert driver.title == "cas - cas attestation service"
     driver.quit()
