@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 class AuthenticatePage:
     def __init__(self, driver):
         self.driver = driver
-        self.url = 'https://cas.codenotary.com/authenticate/'
+        self.url = "https://cas.codenotary.com/authenticate/"
 
     def navigate(self):
         self.driver.get(self.url)
@@ -40,5 +40,3 @@ class AuthenticatePage:
             'v-chip__content')),
             "Timed out waiting for element.")
         return authenticate_chip_status.text
-
-
