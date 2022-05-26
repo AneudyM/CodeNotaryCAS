@@ -6,7 +6,7 @@ import utils.parser
 
 
 class Cas:
-    CAS_API_KEY = os.environ.get('CAS_API_KEY')
+    CAS_API_KEY = os.getenv('CAS_API_KEY')
     CAS_BIN = os.path.join(os.getcwd(), 'bin', 'cas')
     TEST_DATA_DIR = os.path.join(os.getcwd(), 'test_data')
 
