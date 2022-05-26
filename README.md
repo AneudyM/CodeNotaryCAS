@@ -8,6 +8,7 @@ CAS CLI Automation
 * [x] Authenticate a text file
 * [x] Authenticate a git repo
 * [ ] Test cas authenticate web page
+* [ ] Page Object Model
 * [ ] Dockerize automation
 * [ ] Run automation from a CI
 
