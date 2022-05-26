@@ -35,7 +35,11 @@ if __name__ == "__main__":
     if "CAS_API_KEY" not in os.environ:
         sys.exit("CAS_API_KEY not set")
 
-    create_test_data_dir()
+    if not os.path.isdir(test_data_dir):
+        create_test_data_dir()
+    else:
+        shutil.rmtree(test_data_dir, onerror=remove_readonly)
+        create_test_data_dir()
 
     if os.path.isdir(bin_dir):
         shutil.rmtree(bin_dir, onerror=remove_readonly)
