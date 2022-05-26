@@ -1,6 +1,7 @@
 import os
 import utils.repo
 import pytest
+import time
 
 from command.cas import Cas
 
@@ -8,6 +9,10 @@ from command.cas import Cas
 @pytest.mark.order(1)
 def test_notarize_file():
     test_file = os.path.join(os.getcwd(), 'test_data', 'Aneudy_Resume.txt')
+    file = open(test_file, 'x')
+    ns = time.time_ns()
+    file.write(str(ns))
+    file.close()
     cas = Cas()
     cas.login()
     res = cas.notarize_file(test_file)
