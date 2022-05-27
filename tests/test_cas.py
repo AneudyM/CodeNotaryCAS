@@ -16,6 +16,7 @@ def test_notarize_file():
     cas = Cas()
     cas.login()
     res = cas.notarize_file(test_file)
+    cas.logout()
     assert res.get('Status') == "TRUSTED"
 
 
