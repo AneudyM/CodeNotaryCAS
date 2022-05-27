@@ -1,4 +1,3 @@
-import base64
 
 from pages.authenticate_page import AuthenticatePage
 from base.ui_driver import UIDriver
