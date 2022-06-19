@@ -10,3 +10,4 @@ runcmd:
   - export CAS_API_KEY='YW5ldWR5Lm1vdGFjYXRhbGlub0BnbWFpbC5jb20=.NkaZGAPeDHGdkTiGxGscYhPLWEqvNCdokJxg'
   - git clone https://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@github.com/aneudym/CodeNotaryCAS /home/ubuntu/CodeNotaryCAS
   - cd /home/ubuntu/CodeNotaryCAS
+  - python run.py
