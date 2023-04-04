@@ -1,0 +1,13 @@
+apt_update: true
+apt_upgrade: true
+
+packages:
+  - python
+  - git
+
+runcmd:
+  - export GH_TOKEN=""
+  - export CAS_API_KEY=""
+  - git clone https://${GH_TOKEN}@github.com/aneudym/CodeNotaryCAS /home/ubuntu/CodeNotaryCAS
+  - cd /home/ubuntu/CodeNotaryCAS
+  - python run.py

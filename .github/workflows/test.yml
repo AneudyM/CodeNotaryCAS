@@ -1,0 +1,14 @@
+name: CAS Automation
+on: push
+
+
+jobs:
+  build:
+    name: CAS Automation Action
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: ./
+        env:
+          CAS_API_KEY: ${{ secrets.CAS_API_KEY }}
+
